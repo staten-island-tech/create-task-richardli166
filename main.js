@@ -31,11 +31,23 @@ const piece = [
 
 const DOMSelectors = {
     Play: document.querySelector("#playbutton"),
-    Ipiece: document.querySelector("#ibutton"),
-    Zpiece: document.querySelector("#zbutton"),
-    Lpiece: document.querySelector("#lbutton"),
-    Spiece: document.querySelector("#sbutton"),
-    Jpiece: document.querySelector("#jbutton"),
-    Opiece: document.querySelector("#obutton"),
-    Tpiece: document.querySelector("#tbutton"),
 };
+
+function inserts(){
+    DOMSelectors.querySelector("#playbutton").addEventListener("click", 
+    function(){
+        DOMSelectors.querySelector(".typeButtons").innerHTML = "";
+        DOMSelectors.querySelector(".typeButtons").insertAdjacentHTML("beforeend",
+        `<div class="button">
+        <button type="submit" id="ibutton">It is the I Piece!</button>
+        <button type="submit" id="zbutton">It is the Z Piece!</button>
+        <button type="submit" id="lbutton">It is the L Piece!</button>
+        <button type="submit" id="sbutton">It is the S Piece!</button>
+        <button type="submit" id="jbutton">It is the J Piece!</button>
+        <button type="submit" id="obutton">It is the O Piece!</button>
+        <button type="submit" id="tbutton">It is the T Piece!</button>
+    </div>
+    `)
+    });
+}
+inserts();
