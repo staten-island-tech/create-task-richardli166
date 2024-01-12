@@ -1,7 +1,7 @@
 const piece = [
 {
     name: "I",
-    description: "a long blue piece that is four mini blocks long"
+    description: "a cyan piece that is four mini blocks long"
 },
 {
     name: "Z", 
@@ -30,15 +30,33 @@ const piece = [
 ];
 
 const DOMSelectors = {
-    Play: document.querySelector("#playbutton"),
+    Play: document.getElementById("playbutton"),
 };
 
+function getRandomdescription() {
+    const randomIndex = Math.floor(Math.random() * piece.length);
+    const piecearray = piece[randomIndex];
+    return piecearray;
+};
+
+function checkPiece(letter, name) {
+    if (letter === name) {
+      console.log('Correct!');
+    } else {
+      console.log('Incorrect!');
+    }
+  };
+
 function inserts(){
-    DOMSelectors.querySelector("#playbutton").addEventListener("click", 
-    function(){
-        DOMSelectors.querySelector(".typeButtons").innerHTML = "";
-        DOMSelectors.querySelector(".typeButtons").insertAdjacentHTML("beforeend",
+    DOMSelectors.Play.addEventListener("click", function(){
+        const block = getRandomdescription();
+        const name = block.name;
+        const description = block.description;
+        document.getElementById("display").innerHTML = "",
+        document.getElementById("display").insertAdjacentHTML("beforeend",
+       
         `<div class="button">
+        <h2>${description}</h2>
         <button type="submit" id="ibutton">It is the I Piece!</button>
         <button type="submit" id="zbutton">It is the Z Piece!</button>
         <button type="submit" id="lbutton">It is the L Piece!</button>
@@ -46,8 +64,31 @@ function inserts(){
         <button type="submit" id="jbutton">It is the J Piece!</button>
         <button type="submit" id="obutton">It is the O Piece!</button>
         <button type="submit" id="tbutton">It is the T Piece!</button>
-    </div>
-    `)
+      </div>
+    `);
+    document.getElementById("ibutton").addEventListener("click", function() {
+        checkPiece('I', name);
+      });
+      document.getElementById("zbutton").addEventListener("click", function() {
+        checkPiece('Z', name);
+      });
+      document.getElementById("lbutton").addEventListener("click", function() {
+        checkPiece('L', name);
+      });
+      document.getElementById("sbutton").addEventListener("click", function() {
+        checkPiece('S', name);
+      });
+      document.getElementById("jbutton").addEventListener("click", function() {
+        checkPiece('J', name);
+      });
+      document.getElementById("obutton").addEventListener("click", function() {
+        checkPiece('O', name);
+      });
+      document.getElementById("tbutton").addEventListener("click", function() {
+        checkPiece('T', name);
+      });
     });
-}
-inserts();
+  }
+  
+  inserts();
+  
