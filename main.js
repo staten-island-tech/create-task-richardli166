@@ -42,8 +42,18 @@ function getRandomdescription() {
 function checkPiece(letter, name) {
     if (letter === name) {
       console.log('Correct!');
+      document.getElementById("display").insertAdjacentHTML("beforeend",
+        `<div class="correct">
+        <h3>You are Correct!</h3>
+      </div>
+    `);
     } else {
       console.log('Incorrect!');
+      document.getElementById("display").insertAdjacentHTML("beforeend",
+        `<div class="incorrect">
+        <h3>You are Incorrect! It is the ${name} piece!</h3>
+      </div>
+      `);
     }
   };
 
@@ -53,6 +63,7 @@ function inserts(){
         const name = block.name;
         const description = block.description;
         document.getElementById("display").innerHTML = "",
+        document.getElementById("playbutton").remove(),
         document.getElementById("display").insertAdjacentHTML("beforeend",
        
         `<div class="button">
@@ -63,9 +74,10 @@ function inserts(){
         <button type="submit" id="sbutton">It is the S Piece!</button>
         <button type="submit" id="jbutton">It is the J Piece!</button>
         <button type="submit" id="obutton">It is the O Piece!</button>
-        <button type="submit" id="tbutton">It is the T Piece!</button>
+        <button type="submit" id="tbutton">It is the T Piece!</button>  
       </div>
     `);
+  
     document.getElementById("ibutton").addEventListener("click", function() {
         checkPiece('I', name);
       });
