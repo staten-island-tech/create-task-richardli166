@@ -1,31 +1,31 @@
 const piece = [
 {
     name: "I",
-    description: "a cyan piece that is four mini blocks long"
+    description: "A cyan piece that is four mini blocks long."
 },
 {
     name: "Z", 
-    description: "a red piece that is a 3x2 rectangle that have the top right and bottom left cut off"
+    description: "A red piece that is a 3x2 rectangle that have the top right and bottom left cut off."
 },
 {
     name: "L",
-    description: "a orange piece that is a 2x3 rectangle that has the top right and middle right cut off"
+    description: "A orange piece that is a 2x3 rectangle that has the top right and middle right cut off."
 },
 {
     name: "S",
-    description: "a green piece that is 3x2 rectangle that have the top left and bottom right cut off"
+    description: "A green piece that is 3x2 rectangle that have the top left and bottom right cut off."
 },
 {
     name: "J",
-    description: "a blue piece that is a 2x3 rectangle that has the top left and middle left cut off"
+    description: "A blue piece that is a 2x3 rectangle that has the top left and middle left cut off."
 },
 {
     name: "O",
-    description: "a yellow piece that is a 2x2 square",
+    description: "A yellow piece that is a 2x2 square.",
 },
 {
     name: "T",
-    description: "a purple piece that is 3x2 rectangle that has the top left and top right cut off"
+    description: "A purple piece that is 3x2 rectangle that has the top left and top right cut off."
 }
 ];
 
@@ -44,14 +44,14 @@ function checkPiece(letter, name) {
       console.log('Correct!');
       document.getElementById("display").insertAdjacentHTML("beforeend",
         `<div class="correct">
-        <h3>You are Correct!</h3>
+        <h3>You are Correct! It is indeed the ${name} piece! Press "Press to Play" to play again!</h3>
       </div>
     `);
     } else {
       console.log('Incorrect!');
       document.getElementById("display").insertAdjacentHTML("beforeend",
         `<div class="incorrect">
-        <h3>You are Incorrect! It is the ${name} piece!</h3>
+        <h3>You are Incorrect! Try again!</h3>
       </div>
       `);
     }
@@ -63,7 +63,6 @@ function inserts(){
         const name = block.name;
         const description = block.description;
         document.getElementById("display").innerHTML = "",
-        document.getElementById("playbutton").remove(),
         document.getElementById("display").insertAdjacentHTML("beforeend",
        
         `<div class="button">
