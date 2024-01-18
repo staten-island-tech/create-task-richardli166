@@ -51,7 +51,7 @@ function checkPiece(letter, name) {
       console.log('Incorrect!');
       document.getElementById("display").insertAdjacentHTML("beforeend",
         `<div class="incorrect">
-        <h3>You are Incorrect! Try again!</h3>
+        <h3>You are Incorrect! It is not the ${letter} piece. Try again!</h3>
       </div>
       `);
     }
