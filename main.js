@@ -103,3 +103,20 @@ function inserts(){
   
   inserts();
   
+/* for(let i = 0; i< piece.name.length; i++){
+    console.log(piece.name[i]);
+}
+let i = 0;
+while(i< piece.name.length){
+    console.log(piece.name[i]);
+    i++;
+} */
+/* function needle(name, search){
+    if(name.includes(search)){
+        return true;
+    } else{
+        return false;
+    }
+}
+console.log(needle(piece.name, "D"));
+ */
