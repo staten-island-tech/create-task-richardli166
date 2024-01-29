@@ -41,14 +41,15 @@ function getRandomdescription() {
 
 function checkPiece(letter, name) {
     if (letter === name) {
-      console.log('Correct!');
       document.getElementById("display").insertAdjacentHTML("beforeend",
         `<div class="correct">
         <h3>You are Correct! It is indeed the ${name} piece! Press "Press to Play" to play again!</h3>
       </div>
     `);
+    win++;
+    counter();
+    rank(win);
     } else {
-      console.log('Incorrect!');
       document.getElementById("display").insertAdjacentHTML("beforeend",
         `<div class="incorrect">
         <h3>You are Incorrect! It is not the ${letter} piece. Try again!</h3>
@@ -103,20 +104,32 @@ function inserts(){
   
   inserts();
   
-/* for(let i = 0; i< piece.name.length; i++){
-    console.log(piece.name[i]);
-}
-let i = 0;
-while(i< piece.name.length){
-    console.log(piece.name[i]);
-    i++;
-} */
-/* function needle(name, search){
-    if(name.includes(search)){
-        return true;
-    } else{
-        return false;
+  let win = 0; 
+  function counter() {
+    document.querySelector(".counter").textContent = `Correct Count: ${win}`;
+  }
+  counter();
+
+  function rank(win) {
+    const rankDiv = document.getElementById("rank");
+  
+    while (win < 10) {
+      rankDiv.textContent = "You are bronze rank";
+      break;
     }
-}
-console.log(needle(piece.name, "D"));
- */
+  
+    while (win >= 10 && win < 20) {
+      rankDiv.textContent = "You are silver rank";
+      break;
+    }
+  
+    while (win >= 20 && win < 30) {
+      rankDiv.textContent = "You are gold rank";
+      break;
+    }
+  
+    while (win >= 30) {
+      rankDiv.textContent = "You are diamond rank";
+      break;
+    }
+  };
