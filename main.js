@@ -58,6 +58,26 @@ function checkPiece(letter, name) {
     }
   };
 
+  function rank(win) {
+    const rankDiv = document.getElementById("rank");
+    while (win < 10) {
+      rankDiv.textContent = "You are bronze rank";
+      break;
+    }
+    while (win >= 10 && win < 20) {
+      rankDiv.textContent = "You are silver rank";
+      break;
+    }
+    while (win >= 20 && win < 30) {
+      rankDiv.textContent = "You are gold rank";
+      break;
+    }
+    while (win >= 30) {
+      rankDiv.textContent = "You are diamond rank";
+      break;
+    }
+  };
+
 function inserts(){
     DOMSelectors.Play.addEventListener("click", function(){
         const block = getRandomdescription();
@@ -110,26 +130,3 @@ function inserts(){
   }
   counter();
 
-  function rank(win) {
-    const rankDiv = document.getElementById("rank");
-  
-    while (win < 10) {
-      rankDiv.textContent = "You are bronze rank";
-      break;
-    }
-  
-    while (win >= 10 && win < 20) {
-      rankDiv.textContent = "You are silver rank";
-      break;
-    }
-  
-    while (win >= 20 && win < 30) {
-      rankDiv.textContent = "You are gold rank";
-      break;
-    }
-  
-    while (win >= 30) {
-      rankDiv.textContent = "You are diamond rank";
-      break;
-    }
-  };
